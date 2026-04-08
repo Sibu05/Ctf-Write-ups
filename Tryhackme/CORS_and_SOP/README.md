@@ -88,17 +88,17 @@ function exfiltrate(data_all) {
 
 After loading the exploit page, open DevTools → Network tab. You can see the exploit making a GET request to `arbitrary.php` and then a POST to `receiver.php` with the stolen data:
 
-![DevTools showing CORS exploit requests](images/task7-devtools.png)
+![DevTools showing CORS exploit requests](task7-devtools.png)
 *Figure 1 — DevTools Network tab showing the cross-origin GET and the POST exfiltration to receiver.php*
 
 After sending the exploit to the victim, the Apache logs show a new IP — the victim's machine — hitting the exploit page:
 
-![Apache logs showing victim IP](images/task7-apachelogs.png)
+![Apache logs showing victim IP](task7-apachelogs.png)
 *Figure 2 — Apache access logs showing the victim's IP requesting the exploit page*
 
 The victim's browser also sends the stolen data to `receiver.php`, visible as a POST request in the Network tab:
 
-![Network tab showing POST to receiver](images/task7-network.png)
+![Network tab showing POST to receiver](task7-network.png)
 *Figure 3 — Network tab confirming the POST exfiltration request was sent successfully*
 
 Finally, check `data.txt` on your attacker machine — the victim's session data is saved there:
@@ -107,7 +107,7 @@ Finally, check `data.txt` on your attacker machine — the victim's session data
 cat /var/www/html/data.txt
 ```
 
-![data.txt showing exfiltrated content](images/task7-datatxt.png)
+![data.txt showing exfiltrated content](task7-datatxt.png)
 *Figure 4 — data.txt containing the exfiltrated response from the vulnerable endpoint, including the flag*
 
 ---
@@ -143,7 +143,7 @@ xhttp.open("GET", "http://corssop.thm/badregex.php", true);
 
 Follow the same steps as Task 7. After sending the exploit to the victim, check `data.txt` — the exfiltrated response confirms the bypass worked:
 
-![data.txt showing Task 8 exfiltrated content](images/task8-datatxt.png)
+![data.txt showing Task 8 exfiltrated content](task8-datatxt.png)
 *Figure 5 — data.txt showing the exfiltrated response from badregex.php, including the flag*
 
 ---
